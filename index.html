@@ -1,58 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Twitter UI</title>
+    <title>Data Purchase Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
+    <h2>Zenon's Data Plans</h2>
 
-        <div class="left">
-            <div class="left-content">
+    <label>Full Name:</label>
+    <input type="text" id="fullname" placeholder="Enter your full name">
 
-                <div class="item">
-                    <img src="images/search.svg" alt="Search Icon">
-                    <h2>Follow your interests.</h2>
-                </div>
+    <label>Phone Number:</label>
+    <input type="text" placeholder="Enter your phone number">
 
-                <div class="item">
-                    <img src="images/people.svg" alt="People Icon">
-                    <h2>Hear what people are talking about.</h2>
-                </div>
+    <label>Select Network:</label>
+    <select>
+        <option>MTN</option>
+        <option>GLO</option>
+        <option>AIRTEL</option>
+        <option>9MOBILE</option>
+    </select>
 
-                <div class="item">
-                    <img src="images/chat.svg" alt="Chat Icon">
-                    <h2>Join the conversation.</h2>
-                </div>
+    <label>Select Data Plan:</label>
+    <select id="plan" onchange="calculateTotal()">
+        <option value="250">500MB</option>
+        <option value="500">1000MB</option>
+        <option value="1000">2000MB</option>
+        <option value="1500">3000MB</option>
+        <option value="2000">4000MB</option>
+        <option value="2500">5000MB</option>
+    </select>
 
-            </div>
-        </div>
+    <label>Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="calculateTotal()">
 
-        <div class="right">
-            <div class="right-content">
+    <label>Price:</label>
+    <div id="price">₦250</div>
 
-                <img src="images/bird.svg" alt="Twitter Logo" class="logo">
+    <label>Total Price:</label>
+    <div id="total">₦250</div>
 
-                <h1>See what's happening in the world right now</h1>
+    <button type="button" onclick="submitForm()">Submit</button>
+</div>
 
-                <p class="join-text">Join Twitter today.</p>
+<script>
+    function calculateTotal() {
+        var price = document.getElementById("plan").value;
+        var quantity = document.getElementById("quantity").value;
 
-                <button class="signup">Sign up</button>
-                <button class="login">Log in</button>
+        document.getElementById("price").innerHTML = "₦" + price;
+        document.getElementById("total").innerHTML = "₦" + (price * quantity);
+    }
 
-            </div>
-        </div>
+    function submitForm() {
+        var name = document.getElementById("fullname").value;
+        var plan = document.getElementById("plan");
+        var planText = plan.options[plan.selectedIndex].text;
+        var quantity = document.getElementById("quantity").value;
+        var total = document.getElementById("total").innerHTML;
 
-    </div>
-
-    <footer>
-        About | Help Center | Terms | Privacy policy | Cookies |
-        Ads info | Blog | Status | Jobs | Brand | Advertise |
-        Marketing | Businesses | Developers | Directory | Settings
-        © 2020 Twitter, Inc.
-    </footer>
+        alert("Dear " + name + ", your purchase of " + quantity + " x " + planText + " for " + total + " is successful, Thanks for patronising us!!");
+    }
+</script>
 
 </body>
 </html>

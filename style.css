@@ -1,110 +1,91 @@
-* {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
+    background: linear-gradient(to right, #1DA1F2, #0d8ddb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
+/* Form Container */
 .container {
-    display: flex;
-    min-height: 100vh;
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.left {
-    width: 50%;
-    background-color: #1DA1F2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-
-.left-content {
-    width: 80%;
-}
-
-.item {
-    display: flex;
-    align-items: center;
-    margin: 25px 0;
-}
-
-.item img {
-    width: 30px;
-    margin-right: 15px;
-}
-
-.item h2 {
-    font-size: 20px;
-}
-
-.right {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
-.right-content {
-    width: 70%;
-}
-
-.logo {
-    width: 45px;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    line-height: 1.3;
-}
-
-.join-text {
-    font-size: 18px;
+/* Title */
+h2 {
+    text-align: center;
     margin-bottom: 20px;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.signup {
-    background-color: #1DA1F2;
-    color: white;
-    border: none;
-}
-
-.login {
-    background-color: white;
     color: #1DA1F2;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Inputs & Select */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Focus Effect */
+input:focus, select:focus {
+    outline: none;
     border: 1px solid #1DA1F2;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    font-size: 12px;
-    background-color: #f5f8fa;
+/* Price Display */
+#price, #total {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
 }
 
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column;
-    }
+/* Total Price Highlight */
+#total {
+    color: #1DA1F2;
+    font-size: 18px;
+}
 
-    .left, .right {
-        width: 100%;
-        height: 50vh;
-    }
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #1DA1F2;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    .right-content {
-        width: 85%;
-    }
+/* Button Hover */
+button:hover {
+    background-color: #0d8ddb;
+}
+
+/* Confirmation Message */
+#message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
 }
